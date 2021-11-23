@@ -3,7 +3,8 @@ import axios from "axios";
 import NewBook from './NewBook';
 
 const BookList = (props) => {
-  const [books, setBooks ] = useState([]); // gets userState array from initial data in setBooks plus anything added with new form
+  const [books, setBooks ] = useState([]); // gets userState (this is a function that exists 
+  ///somewhere) array from initial data in setBooks plus anything added with new form.
   // We call it inside a function component to add some local state to it. React will
   // preserve this state between re-renders. useState returns a pair: the current state
   // value and a function that lets you update it. You can call this function from an
@@ -29,6 +30,8 @@ const BookList = (props) => {
     // this is where we need API call (use axios)
     // pauses code right here and waits for api call to finish
     let response = await axios.get('https://fakerapi.it/api/v1/books?_quantity=5');
+    //seems like js has some feature that would cause it to break if the data didn't load
+    // and that's why we use await?
     console.log(response);
     console.log(response.data.data);
     setBooks(response.data.data);

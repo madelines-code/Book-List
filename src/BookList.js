@@ -2,6 +2,7 @@ import {useState, useEffect } from 'react'
 import axios from "axios";
 import NewBook from './NewBook';
 
+
 const BookList = (props) => {
   const [books, setBooks ] = useState([]); // gets userState (this is a function that exists 
   ///somewhere) array from initial data in setBooks plus anything added with new form.
@@ -43,19 +44,18 @@ const BookList = (props) => {
     return books.map((book)=>{
       return (
         <div key = {book.isbn} className='book-container'>
-          <h1>{book.title}</h1>
-          <h3> {book.author}</h3>
-          <p> {book.genre}</p>
+          <h1 className='book-title'>{book.title}</h1>
+          <h3> By {book.author}</h3>
+          <p> Genre: {book.genre}</p>
           <p> {book.description}</p>
-          <p> {book.isbn}</p>
-          <button onClick={()=>deleteBook(book.isbn)}> delete </button>
+          <p> ISBN: {book.isbn}</p>
+          <button onClick={()=>deleteBook(book.isbn)} className='button'> delete </button>
         </div>
       );
     });
   };
   return (
     <div className="books">
-      <p>Books Here</p>
       <NewBook x={addBook}/>
       <div className='books-list'>{renderBooks()}</div>
     </div>

@@ -22,7 +22,7 @@ const NewBook = (props)=>{
   };
   return (
     <div className = 'book-form'>
-      <h1>New Book Form</h1>
+      <h3 className = 'new-book-title'>New Book Form</h3>
       <form onSubmit={handleSubmit}>
         <p>Title</p>
         <input value={title} onChange={(e)=> setTitle(e.target.value)}/>
@@ -33,7 +33,7 @@ const NewBook = (props)=>{
         <p>Description</p>
         <input value={description} onChange={(e)=>setDescription(e.target.value)}/>
         <br />
-        <button>Add Book</button>
+        <button className='button'>Add Book</button>
       </form>
     </div>
   );
